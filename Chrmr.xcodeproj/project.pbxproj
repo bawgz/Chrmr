@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CEE050C220BDE7F002CA7F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEE050B220BDE7F002CA7F2 /* Assets.xcassets */; };
+		0CEE0513220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0CEE0512220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0CEE0518220BDE7F002CA7F2 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CEE0517220BDE7F002CA7F2 /* Messages.framework */; };
+		0CEE051B220BDE7F002CA7F2 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEE051A220BDE7F002CA7F2 /* MessagesViewController.swift */; };
+		0CEE051E220BDE7F002CA7F2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEE051C220BDE7F002CA7F2 /* MainInterface.storyboard */; };
+		0CEE0520220BDE7F002CA7F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEE051F220BDE7F002CA7F2 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0CEE0514220BDE7F002CA7F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CEE0502220BDE7C002CA7F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CEE0511220BDE7F002CA7F2;
+			remoteInfo = "Chrmr MessagesExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0CEE0527220BDE7F002CA7F2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0CEE0513220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0CEE0508220BDE7D002CA7F2 /* Chrmr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chrmr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CEE050B220BDE7F002CA7F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CEE050D220BDE7F002CA7F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CEE0512220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Chrmr MessagesExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CEE0517220BDE7F002CA7F2 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		0CEE051A220BDE7F002CA7F2 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		0CEE051D220BDE7F002CA7F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		0CEE051F220BDE7F002CA7F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CEE0521220BDE7F002CA7F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0CEE050F220BDE7F002CA7F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CEE0518220BDE7F002CA7F2 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0CEE0501220BDE7C002CA7F2 = {
+			isa = PBXGroup;
+			children = (
+				0CEE050A220BDE7D002CA7F2 /* Chrmr */,
+				0CEE0519220BDE7F002CA7F2 /* Chrmr MessagesExtension */,
+				0CEE0516220BDE7F002CA7F2 /* Frameworks */,
+				0CEE0509220BDE7D002CA7F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0CEE0509220BDE7D002CA7F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0CEE0508220BDE7D002CA7F2 /* Chrmr.app */,
+				0CEE0512220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0CEE050A220BDE7D002CA7F2 /* Chrmr */ = {
+			isa = PBXGroup;
+			children = (
+				0CEE050B220BDE7F002CA7F2 /* Assets.xcassets */,
+				0CEE050D220BDE7F002CA7F2 /* Info.plist */,
+			);
+			path = Chrmr;
+			sourceTree = "<group>";
+		};
+		0CEE0516220BDE7F002CA7F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CEE0517220BDE7F002CA7F2 /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0CEE0519220BDE7F002CA7F2 /* Chrmr MessagesExtension */ = {
+			isa = PBXGroup;
+			children = (
+				0CEE051A220BDE7F002CA7F2 /* MessagesViewController.swift */,
+				0CEE051C220BDE7F002CA7F2 /* MainInterface.storyboard */,
+				0CEE051F220BDE7F002CA7F2 /* Assets.xcassets */,
+				0CEE0521220BDE7F002CA7F2 /* Info.plist */,
+			);
+			path = "Chrmr MessagesExtension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0CEE0507220BDE7C002CA7F2 /* Chrmr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CEE0528220BDE7F002CA7F2 /* Build configuration list for PBXNativeTarget "Chrmr" */;
+			buildPhases = (
+				0CEE0506220BDE7C002CA7F2 /* Resources */,
+				0CEE0527220BDE7F002CA7F2 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CEE0515220BDE7F002CA7F2 /* PBXTargetDependency */,
+			);
+			name = Chrmr;
+			productName = Chrmr;
+			productReference = 0CEE0508220BDE7D002CA7F2 /* Chrmr.app */;
+			productType = "com.apple.product-type.application.messages";
+		};
+		0CEE0511220BDE7F002CA7F2 /* Chrmr MessagesExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CEE0524220BDE7F002CA7F2 /* Build configuration list for PBXNativeTarget "Chrmr MessagesExtension" */;
+			buildPhases = (
+				0CEE050E220BDE7F002CA7F2 /* Sources */,
+				0CEE050F220BDE7F002CA7F2 /* Frameworks */,
+				0CEE0510220BDE7F002CA7F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Chrmr MessagesExtension";
+			productName = "Chrmr MessagesExtension";
+			productReference = 0CEE0512220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0CEE0502220BDE7C002CA7F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Charms Co.";
+				TargetAttributes = {
+					0CEE0507220BDE7C002CA7F2 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					0CEE0511220BDE7F002CA7F2 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 0CEE0505220BDE7C002CA7F2 /* Build configuration list for PBXProject "Chrmr" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0CEE0501220BDE7C002CA7F2;
+			productRefGroup = 0CEE0509220BDE7D002CA7F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0CEE0507220BDE7C002CA7F2 /* Chrmr */,
+				0CEE0511220BDE7F002CA7F2 /* Chrmr MessagesExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0CEE0506220BDE7C002CA7F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CEE050C220BDE7F002CA7F2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0CEE0510220BDE7F002CA7F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CEE0520220BDE7F002CA7F2 /* Assets.xcassets in Resources */,
+				0CEE051E220BDE7F002CA7F2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0CEE050E220BDE7F002CA7F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CEE051B220BDE7F002CA7F2 /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0CEE0515220BDE7F002CA7F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CEE0511220BDE7F002CA7F2 /* Chrmr MessagesExtension */;
+			targetProxy = 0CEE0514220BDE7F002CA7F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0CEE051C220BDE7F002CA7F2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0CEE051D220BDE7F002CA7F2 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0CEE0522220BDE7F002CA7F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0CEE0523220BDE7F002CA7F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0CEE0525220BDE7F002CA7F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Chrmr MessagesExtension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charms.Chrmr.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0CEE0526220BDE7F002CA7F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Chrmr MessagesExtension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.charms.Chrmr.MessagesExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0CEE0529220BDE7F002CA7F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Chrmr/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.charms.Chrmr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0CEE052A220BDE7F002CA7F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Chrmr/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.charms.Chrmr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0CEE0505220BDE7C002CA7F2 /* Build configuration list for PBXProject "Chrmr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CEE0522220BDE7F002CA7F2 /* Debug */,
+				0CEE0523220BDE7F002CA7F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CEE0524220BDE7F002CA7F2 /* Build configuration list for PBXNativeTarget "Chrmr MessagesExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CEE0525220BDE7F002CA7F2 /* Debug */,
+				0CEE0526220BDE7F002CA7F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CEE0528220BDE7F002CA7F2 /* Build configuration list for PBXNativeTarget "Chrmr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CEE0529220BDE7F002CA7F2 /* Debug */,
+				0CEE052A220BDE7F002CA7F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0CEE0502220BDE7C002CA7F2 /* Project object */;
+}
