@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C5A7BAE231DEC2300BAE3C9 /* Chrm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A7BAD231DEC2300BAE3C9 /* Chrm.swift */; };
+		0CC4CE8C252AA7A70006E4DF /* FileFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */; };
 		0CEE050C220BDE7F002CA7F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEE050B220BDE7F002CA7F2 /* Assets.xcassets */; };
 		0CEE0513220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0CEE0512220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0CEE0518220BDE7F002CA7F2 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CEE0517220BDE7F002CA7F2 /* Messages.framework */; };
 		0CEE051B220BDE7F002CA7F2 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEE051A220BDE7F002CA7F2 /* MessagesViewController.swift */; };
 		0CEE051E220BDE7F002CA7F2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CEE051C220BDE7F002CA7F2 /* MainInterface.storyboard */; };
 		0CEE0520220BDE7F002CA7F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEE051F220BDE7F002CA7F2 /* Assets.xcassets */; };
+		0CF633942526A8D10045CF4E /* ChrmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF633922526A8D10045CF4E /* ChrmCell.swift */; };
+		0CF9E4A325353D5600E7783C /* ChrmPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF9E4A225353D5600E7783C /* ChrmPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C03FCFD2553980500D364E5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0C5A7BAD231DEC2300BAE3C9 /* Chrm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chrm.swift; sourceTree = "<group>"; };
+		0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFetcher.swift; sourceTree = "<group>"; };
 		0CEE0508220BDE7D002CA7F2 /* Chrmr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chrmr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEE050B220BDE7F002CA7F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CEE050D220BDE7F002CA7F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +56,8 @@
 		0CEE051D220BDE7F002CA7F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		0CEE051F220BDE7F002CA7F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CEE0521220BDE7F002CA7F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CF633922526A8D10045CF4E /* ChrmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChrmCell.swift; sourceTree = "<group>"; };
+		0CF9E4A225353D5600E7783C /* ChrmPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChrmPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +75,7 @@
 		0CEE0501220BDE7C002CA7F2 = {
 			isa = PBXGroup;
 			children = (
+				0C03FCFD2553980500D364E5 /* .gitignore */,
 				0CEE050A220BDE7D002CA7F2 /* Chrmr */,
 				0CEE0519220BDE7F002CA7F2 /* Chrmr MessagesExtension */,
 				0CEE0516220BDE7F002CA7F2 /* Frameworks */,
@@ -106,6 +116,10 @@
 				0CEE051C220BDE7F002CA7F2 /* MainInterface.storyboard */,
 				0CEE051F220BDE7F002CA7F2 /* Assets.xcassets */,
 				0CEE0521220BDE7F002CA7F2 /* Info.plist */,
+				0C5A7BAD231DEC2300BAE3C9 /* Chrm.swift */,
+				0CF633922526A8D10045CF4E /* ChrmCell.swift */,
+				0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */,
+				0CF9E4A225353D5600E7783C /* ChrmPlayer.swift */,
 			);
 			path = "Chrmr MessagesExtension";
 			sourceTree = "<group>";
@@ -209,7 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C5A7BAE231DEC2300BAE3C9 /* Chrm.swift in Sources */,
+				0CC4CE8C252AA7A70006E4DF /* FileFetcher.swift in Sources */,
+				0CF633942526A8D10045CF4E /* ChrmCell.swift in Sources */,
 				0CEE051B220BDE7F002CA7F2 /* MessagesViewController.swift in Sources */,
+				0CF9E4A325353D5600E7783C /* ChrmPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Chrmr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.charms.Chrmr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -410,6 +429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Chrmr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.charms.Chrmr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

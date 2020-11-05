@@ -11,9 +11,83 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
+
+    @IBOutlet weak var searchContainerView: UIView!
+    
+    var searchController = UISearchController()
+    
+    var chrms = [Chrm]()
+    
+    var fileFetcher = FileFetcher()
+    
+    var chrmPlayer = ChrmPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        searchContainerView.addSubview(searchController.searchBar)
+        
+        let completionHandler: ([Chrm]) -> Void = {
+            chrms in
+                self.chrms = chrms;
+                self.tableView.delegate = self;
+                self.tableView.dataSource = self;
+
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+        }
+        fetchChrms(searchTerm: "", completionHandler: completionHandler)
+        
+    }
+    
+    func fetchChrms(searchTerm: String, completionHandler: @escaping ([Chrm]) -> Void) {
+        let url = URL(string: "http://helloworldbawgz.com/chrms")!
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("error")
+                print(error)
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                print("error")
+                print(response)
+                return
+            }
+            if let mimeType = httpResponse.mimeType, mimeType == "application/json",
+                let data = data,
+                let string = String(data: data, encoding: .utf8) {
+                    let decoder = JSONDecoder()
+                    do {
+                        var chrms = try decoder.decode([Chrm].self, from: data)
+                        completionHandler(chrms)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+        }.resume()
+    }
+    
+    func filterChrms(searchTerm: String) {
+        if searchTerm.count > 0 {
+            let completionHandler: ([Chrm]) -> Void = {
+                chrms in
+                var chrmsLocal = chrms
+                chrmsLocal.remove(at: 1)
+                self.chrms = chrmsLocal;
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            fetchChrms(searchTerm: searchTerm, completionHandler: completionHandler)
+        }
     }
     
     // MARK: - Conversation Handling
@@ -64,4 +138,60 @@ class MessagesViewController: MSMessagesAppViewController {
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
 
+}
+
+extension MessagesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchController.isActive = false
+        let chrm = chrms[indexPath.row];
+        let completionHandler: (URL) -> Void = { fileUrl in
+            self.activeConversation?.insertAttachment(fileUrl, withAlternateFilename: nil) {error in
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
+
+        fileFetcher.fetchFile(filename: chrm.filename, completionHandler: completionHandler)
+    }
+}
+
+extension MessagesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return chrms.count;
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chrmCellId", for: indexPath) as! ChrmCell
+        let chrm = chrms[indexPath.row]
+        cell.titleLabel?.text = chrm.title
+        cell.filename = chrm.filename
+        cell.chrmPlayer = chrmPlayer
+        return cell;
+    }
+}
+
+extension MessagesViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterChrms(searchTerm: searchText)
+        }
+    }
+}
+
+extension MessagesViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchController.isActive = false
+        
+        if let searchText = searchBar.text {
+            filterChrms(searchTerm: searchText)
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            print("cancel :(")
+        }
+    }
 }
