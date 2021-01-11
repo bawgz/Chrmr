@@ -24,6 +24,8 @@ class MessagesViewController: MSMessagesAppViewController {
     
     var chrmPlayer = ChrmPlayer()
     
+    var searchTask: DispatchWorkItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -48,8 +50,11 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     func fetchChrms(searchTerm: String, completionHandler: @escaping ([Chrm]) -> Void) {
-        let url = URL(string: "http://helloworldbawgz.com/chrms")!
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        var urlComponents = URLComponents(string: "https://us-central1-chrmrapp.cloudfunctions.net/chrms")!
+        if (searchTerm != nil && searchTerm != "") {
+            urlComponents.queryItems = [URLQueryItem(name: "filter", value: searchTerm)]
+        }
+        URLSession.shared.dataTask(with: urlComponents.url!) { data, response, error in
             if let error = error {
                 print("error")
                 print(error)
@@ -76,18 +81,14 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     func filterChrms(searchTerm: String) {
-        if searchTerm.count > 0 {
-            let completionHandler: ([Chrm]) -> Void = {
-                chrms in
-                var chrmsLocal = chrms
-                chrmsLocal.remove(at: 1)
-                self.chrms = chrmsLocal;
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+        let completionHandler: ([Chrm]) -> Void = {
+            chrms in
+            self.chrms = chrms;
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
-            fetchChrms(searchTerm: searchTerm, completionHandler: completionHandler)
         }
+        fetchChrms(searchTerm: searchTerm, completionHandler: completionHandler)
     }
     
     // MARK: - Conversation Handling
@@ -175,7 +176,14 @@ extension MessagesViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-            filterChrms(searchTerm: searchText)
+            self.searchTask?.cancel()
+            let task = DispatchWorkItem { [weak self] in
+                self?.filterChrms(searchTerm: searchText)
+            }
+            self.searchTask = task
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.75, execute: task)
+//            filterChrms(searchTerm: searchText)
         }
     }
 }
@@ -192,6 +200,7 @@ extension MessagesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text, !searchText.isEmpty {
             print("cancel :(")
+            filterChrms(searchTerm: "")
         }
     }
 }

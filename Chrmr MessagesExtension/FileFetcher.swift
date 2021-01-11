@@ -11,7 +11,7 @@ import Foundation
 class FileFetcher {
     
     func fetchFile(filename: String, completionHandler: @escaping (URL) -> Void) {
-        let audioUrl = URL(string: "http://helloworldbawgz.com/files/" + filename)
+        let audioUrl = URL(string: "https://us-central1-chrmrapp.cloudfunctions.net/files/" + filename)
 
         // then lets create your document folder url
         let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -28,7 +28,17 @@ class FileFetcher {
 
             // you can use NSURLSession.sharedSession to download the data asynchronously
             URLSession.shared.downloadTask(with: audioUrl!) { location, response, error in
-                guard let location = location, error == nil else { return }
+                guard let location = location, error == nil else {
+                    print("error calling file service")
+                    print(error)
+                    return
+                }
+                guard let httpResponse = response as? HTTPURLResponse,
+                    (200...299).contains(httpResponse.statusCode) else {
+                    print("error response returned from file service")
+                    print(response)
+                    return
+                }
                 do {
                     // after downloading your file you need to move it to your destination url
                     try FileManager.default.moveItem(at: location, to: destinationUrl)

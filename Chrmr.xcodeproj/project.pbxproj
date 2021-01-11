@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2CD60725ABE057003EB055 /* SongClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CD60625ABE057003EB055 /* SongClip.swift */; };
 		0C5A7BAE231DEC2300BAE3C9 /* Chrm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A7BAD231DEC2300BAE3C9 /* Chrm.swift */; };
 		0CC4CE8C252AA7A70006E4DF /* FileFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */; };
 		0CEE050C220BDE7F002CA7F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEE050B220BDE7F002CA7F2 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		0C03FCFD2553980500D364E5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0C2CD60625ABE057003EB055 /* SongClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongClip.swift; sourceTree = "<group>"; };
 		0C5A7BAD231DEC2300BAE3C9 /* Chrm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chrm.swift; sourceTree = "<group>"; };
 		0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFetcher.swift; sourceTree = "<group>"; };
 		0CEE0508220BDE7D002CA7F2 /* Chrmr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chrmr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 				0CF633922526A8D10045CF4E /* ChrmCell.swift */,
 				0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */,
 				0CF9E4A225353D5600E7783C /* ChrmPlayer.swift */,
+				0C2CD60625ABE057003EB055 /* SongClip.swift */,
 			);
 			path = "Chrmr MessagesExtension";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2CD60725ABE057003EB055 /* SongClip.swift in Sources */,
 				0C5A7BAE231DEC2300BAE3C9 /* Chrm.swift in Sources */,
 				0CC4CE8C252AA7A70006E4DF /* FileFetcher.swift in Sources */,
 				0CF633942526A8D10045CF4E /* ChrmCell.swift in Sources */,

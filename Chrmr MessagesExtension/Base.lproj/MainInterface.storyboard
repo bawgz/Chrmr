@@ -25,7 +25,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3rw-Km-g7R">
-                                <rect key="frame" x="0.0" y="50" width="320" height="478"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="429"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chrmCellId" id="73F-VB-io3" customClass="ChrmCell" customModule="Chrmr_MessagesExtension" customModuleProvider="target">
@@ -43,6 +43,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmC-f1-Y3x">
                                                     <rect key="frame" x="274" y="7" width="30" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Play"/>
                                                     <connections>
                                                         <action selector="playButton:" destination="73F-VB-io3" eventType="touchUpInside" id="7WW-6w-pqM"/>
@@ -75,6 +76,10 @@
                             <constraint firstItem="3rw-Km-g7R" firstAttribute="trailing" secondItem="LDy-ih-0nr" secondAttribute="trailing" id="sCT-9c-TSb"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="P2i-QQ-pWZ"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
