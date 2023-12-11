@@ -10,14 +10,14 @@ import Foundation
 
 class FileFetcher {
     
-    func fetchFile(filename: String, completionHandler: @escaping (URL) -> Void) {
-        let audioUrl = URL(string: "https://us-central1-chrmrapp.cloudfunctions.net/files/" + filename)
+    func fetchFile(audioUrl: String, id: String, completionHandler: @escaping (URL) -> Void) {
+        let audioUrl = URL(string: audioUrl)
 
         // then lets create your document folder url
         let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
         // lets create your destination file url
-        let destinationUrl = documentsDirectoryURL.appendingPathComponent(filename)
+        let destinationUrl = documentsDirectoryURL.appendingPathComponent(id + ".mp3")
         print(destinationUrl)
 
         // to check if it exists before downloading it

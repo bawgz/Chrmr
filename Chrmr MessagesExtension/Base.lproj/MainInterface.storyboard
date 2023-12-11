@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,36 +28,59 @@
                                 <rect key="frame" x="0.0" y="50" width="320" height="429"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chrmCellId" id="73F-VB-io3" customClass="ChrmCell" customModule="Chrmr_MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chrmCellId" rowHeight="70" id="73F-VB-io3" customClass="ChrmCell" customModule="Chrmr_MessagesExtension" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="73F-VB-io3" id="67r-XO-JbQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dre-xs-oIf">
-                                                    <rect key="frame" x="16" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="78" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmC-f1-Y3x">
-                                                    <rect key="frame" x="274" y="7" width="30" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <state key="normal" title="Play"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmC-f1-Y3x">
+                                                    <rect key="frame" x="286" y="22" width="18" height="24"/>
+                                                    <state key="normal" image="play.fill" catalog="system"/>
+                                                    <state key="selected" image="pause.fill" catalog="system"/>
                                                     <connections>
                                                         <action selector="playButton:" destination="73F-VB-io3" eventType="touchUpInside" id="7WW-6w-pqM"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-2p-qrl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="lLD-Wv-mPb"/>
+                                                        <constraint firstAttribute="height" constant="70" id="s47-Vv-xIX"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXZ-gq-mml" userLabel="Artist Label">
+                                                    <rect key="frame" x="78" y="38" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="FXZ-gq-mml" firstAttribute="top" secondItem="Dre-xs-oIf" secondAttribute="bottom" constant="6" id="16N-gG-bO0"/>
+                                                <constraint firstItem="Dre-xs-oIf" firstAttribute="top" secondItem="67r-XO-JbQ" secondAttribute="topMargin" id="DOX-kk-CXa"/>
                                                 <constraint firstItem="EmC-f1-Y3x" firstAttribute="centerY" secondItem="67r-XO-JbQ" secondAttribute="centerY" id="Iw5-qK-K29"/>
+                                                <constraint firstItem="Pp9-2p-qrl" firstAttribute="leading" secondItem="67r-XO-JbQ" secondAttribute="leading" id="Kdg-52-tov"/>
+                                                <constraint firstItem="FXZ-gq-mml" firstAttribute="leading" secondItem="Pp9-2p-qrl" secondAttribute="trailing" constant="8" symbolic="YES" id="LPh-PY-0mP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EmC-f1-Y3x" secondAttribute="trailing" constant="3" id="VYd-sK-jXi"/>
+                                                <constraint firstItem="Pp9-2p-qrl" firstAttribute="top" secondItem="67r-XO-JbQ" secondAttribute="top" id="Wq9-Yb-gcL"/>
+                                                <constraint firstAttribute="bottom" secondItem="Pp9-2p-qrl" secondAttribute="bottom" id="Z6o-LN-XFE"/>
+                                                <constraint firstItem="FXZ-gq-mml" firstAttribute="top" secondItem="Dre-xs-oIf" secondAttribute="bottom" constant="6" id="aDg-sN-Boe"/>
+                                                <constraint firstItem="Dre-xs-oIf" firstAttribute="leading" secondItem="Pp9-2p-qrl" secondAttribute="trailing" constant="8" symbolic="YES" id="fcj-pn-z7W"/>
                                                 <constraint firstAttribute="trailing" secondItem="EmC-f1-Y3x" secondAttribute="trailing" constant="16" id="knu-lx-3Tc"/>
-                                                <constraint firstItem="Dre-xs-oIf" firstAttribute="leading" secondItem="67r-XO-JbQ" secondAttribute="leading" constant="16" id="nEc-BH-ULH"/>
-                                                <constraint firstItem="Dre-xs-oIf" firstAttribute="centerY" secondItem="67r-XO-JbQ" secondAttribute="centerY" id="p15-G0-tIV"/>
+                                                <constraint firstItem="FXZ-gq-mml" firstAttribute="bottom" secondItem="67r-XO-JbQ" secondAttribute="bottomMargin" id="yyr-60-DLD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="artistLabel" destination="FXZ-gq-mml" id="yVc-bg-h2X"/>
+                                            <outlet property="chrmImage" destination="Pp9-2p-qrl" id="jNc-5w-Air"/>
                                             <outlet property="titleLabel" destination="Dre-xs-oIf" id="hRa-OE-mCZ"/>
                                         </connections>
                                     </tableViewCell>
@@ -76,9 +99,7 @@
                             <constraint firstItem="3rw-Km-g7R" firstAttribute="trailing" secondItem="LDy-ih-0nr" secondAttribute="trailing" id="sCT-9c-TSb"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="P2i-QQ-pWZ"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
@@ -102,6 +123,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

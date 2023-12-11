@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C12EB3F25B3952100D9EAD8 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C12EB3E25B3952100D9EAD8 /* UIImageExtensions.swift */; };
 		0C2CD60725ABE057003EB055 /* SongClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CD60625ABE057003EB055 /* SongClip.swift */; };
+		0C2CD60B25ABEA2A003EB055 /* SongClipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2CD60A25ABEA2A003EB055 /* SongClipResponse.swift */; };
 		0C5A7BAE231DEC2300BAE3C9 /* Chrm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A7BAD231DEC2300BAE3C9 /* Chrm.swift */; };
+		0C90C3D726484F9C00F84D84 /* ChrmUrlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90C3D626484F9C00F84D84 /* ChrmUrlService.swift */; };
 		0CC4CE8C252AA7A70006E4DF /* FileFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */; };
 		0CEE050C220BDE7F002CA7F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CEE050B220BDE7F002CA7F2 /* Assets.xcassets */; };
 		0CEE0513220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0CEE0512220BDE7F002CA7F2 /* Chrmr MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -46,8 +49,11 @@
 
 /* Begin PBXFileReference section */
 		0C03FCFD2553980500D364E5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0C12EB3E25B3952100D9EAD8 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		0C2CD60625ABE057003EB055 /* SongClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongClip.swift; sourceTree = "<group>"; };
+		0C2CD60A25ABEA2A003EB055 /* SongClipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongClipResponse.swift; sourceTree = "<group>"; };
 		0C5A7BAD231DEC2300BAE3C9 /* Chrm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chrm.swift; sourceTree = "<group>"; };
+		0C90C3D626484F9C00F84D84 /* ChrmUrlService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChrmUrlService.swift; sourceTree = "<group>"; };
 		0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFetcher.swift; sourceTree = "<group>"; };
 		0CEE0508220BDE7D002CA7F2 /* Chrmr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chrmr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CEE050B220BDE7F002CA7F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				0CEE051A220BDE7F002CA7F2 /* MessagesViewController.swift */,
+				0C2CD60A25ABEA2A003EB055 /* SongClipResponse.swift */,
 				0CEE051C220BDE7F002CA7F2 /* MainInterface.storyboard */,
 				0CEE051F220BDE7F002CA7F2 /* Assets.xcassets */,
 				0CEE0521220BDE7F002CA7F2 /* Info.plist */,
@@ -123,6 +130,8 @@
 				0CC4CE8B252AA7A70006E4DF /* FileFetcher.swift */,
 				0CF9E4A225353D5600E7783C /* ChrmPlayer.swift */,
 				0C2CD60625ABE057003EB055 /* SongClip.swift */,
+				0C12EB3E25B3952100D9EAD8 /* UIImageExtensions.swift */,
+				0C90C3D626484F9C00F84D84 /* ChrmUrlService.swift */,
 			);
 			path = "Chrmr MessagesExtension";
 			sourceTree = "<group>";
@@ -228,9 +237,12 @@
 			files = (
 				0C2CD60725ABE057003EB055 /* SongClip.swift in Sources */,
 				0C5A7BAE231DEC2300BAE3C9 /* Chrm.swift in Sources */,
+				0C2CD60B25ABEA2A003EB055 /* SongClipResponse.swift in Sources */,
+				0C12EB3F25B3952100D9EAD8 /* UIImageExtensions.swift in Sources */,
 				0CC4CE8C252AA7A70006E4DF /* FileFetcher.swift in Sources */,
 				0CF633942526A8D10045CF4E /* ChrmCell.swift in Sources */,
 				0CEE051B220BDE7F002CA7F2 /* MessagesViewController.swift in Sources */,
+				0C90C3D726484F9C00F84D84 /* ChrmUrlService.swift in Sources */,
 				0CF9E4A325353D5600E7783C /* ChrmPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PCDDSRJD39;
 				INFOPLIST_FILE = "Chrmr MessagesExtension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,6 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PCDDSRJD39;
 				INFOPLIST_FILE = "Chrmr MessagesExtension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,6 +431,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PCDDSRJD39;
 				INFOPLIST_FILE = Chrmr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.charms.Chrmr;
@@ -432,6 +447,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PCDDSRJD39;
 				INFOPLIST_FILE = Chrmr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.charms.Chrmr;
