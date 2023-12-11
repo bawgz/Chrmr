@@ -14,12 +14,16 @@ class ChrmCell: UITableViewCell {
     var fileFetcher = FileFetcher()
     var chrmPlayer: ChrmPlayer?
     var player: AVAudioPlayer?
-    var filename: String!
+    var audioUrl: String!
+    var chrmId: String!
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var chrmImage: UIImageView!
+    
     
     @IBAction func playButton(_ sender: UIButton) {
-        print("play da music " + filename)
+        print("play da music " + audioUrl)
         
         let completionHandler: (URL) -> Void = { fileUrl in
 //            do {
@@ -43,7 +47,7 @@ class ChrmCell: UITableViewCell {
             self.chrmPlayer?.playFile(fileUrl: fileUrl)
         }
         
-        fileFetcher.fetchFile(filename: filename, completionHandler: completionHandler)
+        fileFetcher.fetchFile(audioUrl: audioUrl, id: chrmId, completionHandler: completionHandler)
     }
     //    override func awakeFromNib() {
 //        super.awakeFromNib()

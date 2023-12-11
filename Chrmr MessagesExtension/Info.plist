@@ -35,6 +35,13 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>us-central1-chrmrapp.cloudfunctions.net</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>helloworldbawgz.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>

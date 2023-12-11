@@ -18,11 +18,15 @@ class MessagesViewController: MSMessagesAppViewController {
     
     var searchController = UISearchController()
     
-    var chrms = [Chrm]()
+    var songClips = [SongClip]()
     
     var fileFetcher = FileFetcher()
     
+    var chrmUrlService = ChrmUrlService()
+
     var chrmPlayer = ChrmPlayer()
+    
+    var searchTask: DispatchWorkItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +37,9 @@ class MessagesViewController: MSMessagesAppViewController {
         searchController.searchBar.delegate = self
         searchContainerView.addSubview(searchController.searchBar)
         
-        let completionHandler: ([Chrm]) -> Void = {
-            chrms in
-                self.chrms = chrms;
+        let completionHandler: ([SongClip]) -> Void = {
+            songClips in
+                self.songClips = songClips;
                 self.tableView.delegate = self;
                 self.tableView.dataSource = self;
 
@@ -47,9 +51,23 @@ class MessagesViewController: MSMessagesAppViewController {
         
     }
     
-    func fetchChrms(searchTerm: String, completionHandler: @escaping ([Chrm]) -> Void) {
-        let url = URL(string: "http://helloworldbawgz.com/chrms")!
-        URLSession.shared.dataTask(with: url) { data, response, error in
+    func fetchChrms(searchTerm: String, completionHandler: @escaping ([SongClip]) -> Void) {
+        var urlComponents = URLComponents(string: "https://us-central1-chrmrapp.cloudfunctions.net/chrms")!
+        
+        var queryItems = [URLQueryItem(name: "maxLength", value: "15")]
+        if (searchTerm != nil && searchTerm != "") {
+            queryItems.append(URLQueryItem(name: "q", value: searchTerm))
+        } else {
+            urlComponents.path += "/collections/trending"
+        }
+        
+        urlComponents.queryItems = queryItems
+        
+        var request = URLRequest(url: urlComponents.url!)
+        
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("error")
                 print(error)
@@ -66,8 +84,8 @@ class MessagesViewController: MSMessagesAppViewController {
                 let string = String(data: data, encoding: .utf8) {
                     let decoder = JSONDecoder()
                     do {
-                        var chrms = try decoder.decode([Chrm].self, from: data)
-                        completionHandler(chrms)
+                        var songClipResponse = try decoder.decode(SongClipResponse.self, from: data)
+                        completionHandler(songClipResponse.data.songclips)
                     } catch {
                         print(error.localizedDescription)
                     }
@@ -76,18 +94,14 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     func filterChrms(searchTerm: String) {
-        if searchTerm.count > 0 {
-            let completionHandler: ([Chrm]) -> Void = {
-                chrms in
-                var chrmsLocal = chrms
-                chrmsLocal.remove(at: 1)
-                self.chrms = chrmsLocal;
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+        let completionHandler: ([SongClip]) -> Void = {
+            songClips in
+            self.songClips = songClips;
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
-            fetchChrms(searchTerm: searchTerm, completionHandler: completionHandler)
         }
+        fetchChrms(searchTerm: searchTerm, completionHandler: completionHandler)
     }
     
     // MARK: - Conversation Handling
@@ -143,29 +157,52 @@ class MessagesViewController: MSMessagesAppViewController {
 extension MessagesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchController.isActive = false
-        let chrm = chrms[indexPath.row];
-        let completionHandler: (URL) -> Void = { fileUrl in
-            self.activeConversation?.insertAttachment(fileUrl, withAlternateFilename: nil) {error in
+        let songClip = songClips[indexPath.row];
+        
+        let completionHandler: (String) -> Void = { chrmUrl in
+            
+//            var message = MSMessage()
+//            var template = MSMessageTemplateLayout()
+//            template.mediaFileURL = fileUrl
+//
+//            message.layout = template
+//            self.activeConversation?.insert(message, completionHandler: {
+//                error in
+//                if let error = error {
+//                    print(error)
+//                }
+//            })
+            
+//            self.activeConversation?.insertAttachment(fileUrl, withAlternateFilename: nil) {error in
+//                if let error = error {
+//                    print(error)
+//                }
+//            }
+            
+            self.activeConversation?.insertText(chrmUrl) {error in
                 if let error = error {
                     print(error)
                 }
             }
         }
 
-        fileFetcher.fetchFile(filename: chrm.filename, completionHandler: completionHandler)
+        chrmUrlService.fetchChrmUrl(songClip: songClip, completionHandler: completionHandler)
     }
 }
 
 extension MessagesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chrms.count;
+        return songClips.count;
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chrmCellId", for: indexPath) as! ChrmCell
-        let chrm = chrms[indexPath.row]
+        let chrm = songClips[indexPath.row]
         cell.titleLabel?.text = chrm.title
-        cell.filename = chrm.filename
+        cell.artistLabel?.text = chrm.artist
+        cell.chrmImage.loadImageUsingCache(withUrl: chrm.coverUrl)
+        cell.audioUrl = chrm.audioUrl
+        cell.chrmId = chrm.id
         cell.chrmPlayer = chrmPlayer
         return cell;
     }
@@ -175,7 +212,14 @@ extension MessagesViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-            filterChrms(searchTerm: searchText)
+            self.searchTask?.cancel()
+            let task = DispatchWorkItem { [weak self] in
+                self?.filterChrms(searchTerm: searchText)
+            }
+            self.searchTask = task
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.75, execute: task)
+//            filterChrms(searchTerm: searchText)
         }
     }
 }
@@ -192,6 +236,7 @@ extension MessagesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text, !searchText.isEmpty {
             print("cancel :(")
+            filterChrms(searchTerm: "")
         }
     }
 }
